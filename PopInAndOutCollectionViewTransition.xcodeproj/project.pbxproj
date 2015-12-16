@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		1AD3A6C61C20A4460006D071 /* PopInAndOutCollectionViewTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD3A6C51C20A4460006D071 /* PopInAndOutCollectionViewTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AD3A6CE1C20A4940006D071 /* PopInAndOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6CD1C20A4940006D071 /* PopInAndOutAnimator.swift */; };
+		1AD3A6D01C20A5790006D071 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6CF1C20A5790006D071 /* UIView+Screenshot.swift */; };
+		1AD3A6D21C20A6C30006D071 /* CollectionPushAndPoppable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6D11C20A6C30006D071 /* CollectionPushAndPoppable.swift */; };
+		1AD3A6D41C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6D31C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AD3A6C21C20A4460006D071 /* PopInAndOutCollectionViewTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopInAndOutCollectionViewTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD3A6C51C20A4460006D071 /* PopInAndOutCollectionViewTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopInAndOutCollectionViewTransition.h; sourceTree = "<group>"; };
 		1AD3A6C71C20A4460006D071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AD3A6CD1C20A4940006D071 /* PopInAndOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopInAndOutAnimator.swift; sourceTree = "<group>"; };
+		1AD3A6CF1C20A5790006D071 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
+		1AD3A6D11C20A6C30006D071 /* CollectionPushAndPoppable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionPushAndPoppable.swift; sourceTree = "<group>"; };
+		1AD3A6D31C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationControllerDelegate+AnimatorGenerator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,10 @@
 			children = (
 				1AD3A6C51C20A4460006D071 /* PopInAndOutCollectionViewTransition.h */,
 				1AD3A6C71C20A4460006D071 /* Info.plist */,
+				1AD3A6CD1C20A4940006D071 /* PopInAndOutAnimator.swift */,
+				1AD3A6CF1C20A5790006D071 /* UIView+Screenshot.swift */,
+				1AD3A6D11C20A6C30006D071 /* CollectionPushAndPoppable.swift */,
+				1AD3A6D31C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift */,
 			);
 			path = PopInAndOutCollectionViewTransition;
 			sourceTree = "<group>";
@@ -130,6 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD3A6D01C20A5790006D071 /* UIView+Screenshot.swift in Sources */,
+				1AD3A6CE1C20A4940006D071 /* PopInAndOutAnimator.swift in Sources */,
+				1AD3A6D21C20A6C30006D071 /* CollectionPushAndPoppable.swift in Sources */,
+				1AD3A6D41C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +244,7 @@
 		1AD3A6CB1C20A4460006D071 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -238,12 +255,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stefanovettor.PopInAndOutCollectionViewTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1AD3A6CC1C20A4460006D071 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
