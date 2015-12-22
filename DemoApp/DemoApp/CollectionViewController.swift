@@ -76,7 +76,9 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 //MARK: UINavigationControllerDelegate
 extension CollectionViewController: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
+        // In this method belonging to the protocol UINavigationControllerDelegate you must
+        // return an animator conforming to the protocol UIViewControllerAnimatedTransitioning.
+        // To perform the Pop in and Out animation PopInAndOutAnimator should be returned
         return PopInAndOutAnimator(operation: operation)
     }
 }
