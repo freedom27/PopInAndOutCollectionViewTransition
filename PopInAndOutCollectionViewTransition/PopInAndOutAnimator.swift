@@ -37,12 +37,20 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     //MARK: Push and Pop animations performers
     internal func performPushTransition(transitionContext: UIViewControllerContextTransitioning) {
         
+        guard let toView = transitionContext.viewForKey(UITransitionContextToViewKey),
+            let container = transitionContext.containerView() else {
+                // Something really bad happend and it is not possible to perform the transition
+                print("ERROR: Transition impossible to perform since either the destination view or the conteiner view are missing!")
+                return
+        }
+        
         guard let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? CollectionPushAndPoppable,
             let fromView = fromViewController.collectionView,
-            let toView = transitionContext.viewForKey(UITransitionContextToViewKey),
-            let currentCell = fromViewController.sourceCell,
-            let container = transitionContext.containerView() else {
-                
+            let currentCell = fromViewController.sourceCell else {
+                // There are not enough info to perform the animation but it is still possible
+                // to perform the transition presenting the destination view
+                container.addSubview(toView)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
             return
         }
         
@@ -93,15 +101,23 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     internal func performPopTransition(transitionContext: UIViewControllerContextTransitioning) {
         
+        guard let toView = transitionContext.viewForKey(UITransitionContextToViewKey),
+            let container = transitionContext.containerView() else {
+                // Something really bad happend and it is not possible to perform the transition
+                print("ERROR: Transition impossible to perform since either the destination view or the conteiner view are missing!")
+                return
+        }
+        
         guard let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? CollectionPushAndPoppable,
             let toCollectionView = toViewController.collectionView,
-            let toView = toViewController.view,
             let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
             let fromView = fromViewController.view,
-            let currentCell = toViewController.sourceCell,
-            let container = transitionContext.containerView() else {
-                
-            return
+            let currentCell = toViewController.sourceCell else {
+                // There are not enough info to perform the animation but it is still possible
+                // to perform the transition presenting the destination view
+                container.addSubview(toView)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                return
         }
         
         // Prepare the screenshot of the source view for animation
