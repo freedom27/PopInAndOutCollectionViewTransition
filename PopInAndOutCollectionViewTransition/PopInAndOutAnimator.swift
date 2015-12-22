@@ -24,6 +24,11 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     let operationType : UINavigationControllerOperation
     let transitionDuration : NSTimeInterval
     
+    init(operation: UINavigationControllerOperation) {
+        operationType = operation
+        transitionDuration = 0.4
+    }
+    
     init(operation: UINavigationControllerOperation, andDuration duration: NSTimeInterval) {
         operationType = operation
         transitionDuration = duration

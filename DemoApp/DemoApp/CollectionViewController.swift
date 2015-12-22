@@ -20,6 +20,8 @@ class CollectionViewController: UICollectionViewController {
             pictures = NSArray(contentsOfFile: path) as? [String]
         }
         
+        // It is important to define a navigationController delegate! In this case
+        // I used the ViewController as delegate... but it is not mandatory
         self.navigationController?.delegate = self
     }
 
@@ -34,7 +36,7 @@ class CollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pictures!.count
+        return pictures?.count ?? 0
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -51,6 +53,8 @@ class CollectionViewController: UICollectionViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! ViewController
         let cell = sender as! PictureCell
+        // This next line is very importat for the proper functioning of the animation:
+        // the sourceCell property tells the animator which is the cell involved in the transition
         sourceCell = cell
         vc.picture = cell.picture.image
     }
@@ -73,7 +77,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 extension CollectionViewController: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        return animatorForOperation(operation)
+        return PopInAndOutAnimator(operation: operation)
     }
 }
 

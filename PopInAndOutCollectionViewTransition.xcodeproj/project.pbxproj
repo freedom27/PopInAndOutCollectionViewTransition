@@ -11,7 +11,6 @@
 		1AD3A6CE1C20A4940006D071 /* PopInAndOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6CD1C20A4940006D071 /* PopInAndOutAnimator.swift */; };
 		1AD3A6D01C20A5790006D071 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6CF1C20A5790006D071 /* UIView+Screenshot.swift */; };
 		1AD3A6D21C20A6C30006D071 /* CollectionPushAndPoppable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6D11C20A6C30006D071 /* CollectionPushAndPoppable.swift */; };
-		1AD3A6D41C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3A6D31C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +20,6 @@
 		1AD3A6CD1C20A4940006D071 /* PopInAndOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopInAndOutAnimator.swift; sourceTree = "<group>"; };
 		1AD3A6CF1C20A5790006D071 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
 		1AD3A6D11C20A6C30006D071 /* CollectionPushAndPoppable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionPushAndPoppable.swift; sourceTree = "<group>"; };
-		1AD3A6D31C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationControllerDelegate+AnimatorGenerator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +57,6 @@
 				1AD3A6CD1C20A4940006D071 /* PopInAndOutAnimator.swift */,
 				1AD3A6CF1C20A5790006D071 /* UIView+Screenshot.swift */,
 				1AD3A6D11C20A6C30006D071 /* CollectionPushAndPoppable.swift */,
-				1AD3A6D31C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift */,
 			);
 			path = PopInAndOutCollectionViewTransition;
 			sourceTree = "<group>";
@@ -145,7 +142,6 @@
 				1AD3A6D01C20A5790006D071 /* UIView+Screenshot.swift in Sources */,
 				1AD3A6CE1C20A4940006D071 /* PopInAndOutAnimator.swift in Sources */,
 				1AD3A6D21C20A6C30006D071 /* CollectionPushAndPoppable.swift in Sources */,
-				1AD3A6D41C20A8760006D071 /* UINavigationControllerDelegate+AnimatorGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +291,7 @@
 				1AD3A6CC1C20A4460006D071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

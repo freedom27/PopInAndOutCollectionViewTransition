@@ -10,7 +10,6 @@
 		1A3025121C20ACE000D9159C /* CollectionPushAndPoppable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30250C1C20ACE000D9159C /* CollectionPushAndPoppable.swift */; };
 		1A3025131C20ACE000D9159C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A30250D1C20ACE000D9159C /* Info.plist */; };
 		1A3025141C20ACE000D9159C /* PopInAndOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30250E1C20ACE000D9159C /* PopInAndOutAnimator.swift */; };
-		1A3025151C20ACE000D9159C /* UINavigationControllerDelegate+AnimatorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3025101C20ACE000D9159C /* UINavigationControllerDelegate+AnimatorGenerator.swift */; };
 		1A3025161C20ACE000D9159C /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3025111C20ACE000D9159C /* UIView+Screenshot.swift */; };
 		1A3025241C20BAA700D9159C /* antennae_galaxies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A3025181C20BAA700D9159C /* antennae_galaxies.jpg */; };
 		1A3025251C20BAA700D9159C /* aro273.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A3025191C20BAA700D9159C /* aro273.jpg */; };
@@ -39,7 +38,6 @@
 		1A30250D1C20ACE000D9159C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A30250E1C20ACE000D9159C /* PopInAndOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopInAndOutAnimator.swift; sourceTree = "<group>"; };
 		1A30250F1C20ACE000D9159C /* PopInAndOutCollectionViewTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopInAndOutCollectionViewTransition.h; sourceTree = "<group>"; };
-		1A3025101C20ACE000D9159C /* UINavigationControllerDelegate+AnimatorGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationControllerDelegate+AnimatorGenerator.swift"; sourceTree = "<group>"; };
 		1A3025111C20ACE000D9159C /* UIView+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
 		1A3025181C20BAA700D9159C /* antennae_galaxies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = antennae_galaxies.jpg; sourceTree = "<group>"; };
 		1A3025191C20BAA700D9159C /* aro273.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aro273.jpg; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 				1A30250D1C20ACE000D9159C /* Info.plist */,
 				1A30250E1C20ACE000D9159C /* PopInAndOutAnimator.swift */,
 				1A30250F1C20ACE000D9159C /* PopInAndOutCollectionViewTransition.h */,
-				1A3025101C20ACE000D9159C /* UINavigationControllerDelegate+AnimatorGenerator.swift */,
 				1A3025111C20ACE000D9159C /* UIView+Screenshot.swift */,
 			);
 			name = PopInAndOutCollectionViewTransition;
@@ -229,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A3025161C20ACE000D9159C /* UIView+Screenshot.swift in Sources */,
-				1A3025151C20ACE000D9159C /* UINavigationControllerDelegate+AnimatorGenerator.swift in Sources */,
 				1A3025141C20ACE000D9159C /* PopInAndOutAnimator.swift in Sources */,
 				1AD3A7021C20ABC30006D071 /* CollectionViewController.swift in Sources */,
 				1AD3A7001C20ABC30006D071 /* AppDelegate.swift in Sources */,
