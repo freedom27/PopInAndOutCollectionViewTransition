@@ -21,17 +21,17 @@ import UIKit
 
 class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    let operationType : UINavigationControllerOperation
-    let transitionDuration : NSTimeInterval
+    private let _operationType : UINavigationControllerOperation
+    private let _transitionDuration : NSTimeInterval
     
     init(operation: UINavigationControllerOperation) {
-        operationType = operation
-        transitionDuration = 0.4
+        _operationType = operation
+        _transitionDuration = 0.4
     }
     
     init(operation: UINavigationControllerOperation, andDuration duration: NSTimeInterval) {
-        operationType = operation
-        transitionDuration = duration
+        _operationType = operation
+        _transitionDuration = duration
     }
     
     //MARK: Push and Pop animations performers
@@ -82,7 +82,7 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             screenshotToView.hidden = false
         }
         
-        UIView.animateWithDuration(transitionDuration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+        UIView.animateWithDuration(_transitionDuration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { () -> Void in
             
             screenshotFromView.alpha = 0.0
             screenshotToView.frame = UIScreen.mainScreen().bounds
@@ -140,7 +140,7 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         container.addSubview(screenshotToView)
         container.insertSubview(screenshotFromView, belowSubview: screenshotToView)
         
-        UIView.animateWithDuration(transitionDuration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+        UIView.animateWithDuration(_transitionDuration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { () -> Void in
             
             screenshotToView.alpha = 1.0
             screenshotFromView.frame = currentCell.frame
@@ -159,13 +159,13 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     //MARK: UIViewControllerAnimatedTransitioning
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return transitionDuration
+        return _transitionDuration
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        if operationType == .Push {
+        if _operationType == .Push {
             performPushTransition(transitionContext)
-        } else if operationType == .Pop {
+        } else if _operationType == .Pop {
             performPopTransition(transitionContext)
         }
     }
