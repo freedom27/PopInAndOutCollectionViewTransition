@@ -1,5 +1,5 @@
 # PopInAndOutCollectionViewTransition
-This small framework provide a Pop-in and Pop-out transition animation for UICollectionViews. More specifically when a cell of a collection view is touched to performe a transition the cell began to enlarge becoming as big as the screen whilst its content fade into the destination view. 
+This small framework provide a Pop-in and Pop-out transition animation for UICollectionViews. More specifically when a cell of a collection view is touched to performe a transition the cell begin to enlarge becoming as big as the screen whilst its content fade into the destination view. 
 
 ##How to use it
 First thing of all you must be sure that the UICollectionViewController managing the collection view you whant to animate conforms to the protocol **CollectionPushAndPoppable**:
@@ -21,7 +21,7 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 }
 ```
 
-Once your Collection view controller conform to **CollectionPushAndPoppable** and the sourceCell property is properly set before the transition there are only a couple of other things left to do...
+Once your Collection view controller conforms to **CollectionPushAndPoppable** and the sourceCell property is properly set before the transition there are only a couple of other things left to do...
 
 Define a navigation controller delegate that will provide the animator for the transition: it can be any class but I usually set the collection view controller as the delagate. In the delegate implement the method reported below to return an instance of **PopInAndOutAnimator**.
 ```swift
