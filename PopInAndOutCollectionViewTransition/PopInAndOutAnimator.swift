@@ -7,16 +7,6 @@
 //
 
 import Foundation
-
-//
-//  PushAndPopZoomAnimator.swift
-//  MyTVSerials
-//
-//  Created by Stefano Vettor on 17/06/15.
-//  Copyright (c) 2015 Stefano Vettor. All rights reserved.
-//
-
-import Foundation
 import UIKit
 
 class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -59,9 +49,12 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         // Prepare the screenshot of the destination view for animation
         let screenshotToView =  UIImageView(image: toView.screenshot)
+        // set the frame of the screenshot equals to the cell's one
         screenshotToView.frame = currentCell.frame
-        let windowCoord = fromView.convertPoint(screenshotToView.frame.origin, toView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view)
-        screenshotToView.frame.origin = windowCoord
+        // Now I get the coordinates of screenshotToView inside the container
+        let containerCoord = fromView.convertPoint(screenshotToView.frame.origin, toView: container)
+        // set a new origin for the screenshotToView to overlap it to the cell
+        screenshotToView.frame.origin = containerCoord
         
         // Prepare the screenshot of the source view for animation
         let screenshotFromView = UIImageView(image: currentCell.screenshot)
@@ -86,7 +79,7 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             
             screenshotFromView.alpha = 0.0
             screenshotToView.frame = UIScreen.mainScreen().bounds
-            screenshotToView.frame.origin = CGPointMake(0.0, 0.0)
+            screenshotToView.frame.origin = CGPoint(x: 0.0, y: 0.0)
             screenshotFromView.frame = screenshotToView.frame
             
             }) { _ in
@@ -120,31 +113,33 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 return
         }
         
+        // Add destination view to the container view
+        container.addSubview(toView)
+        
         // Prepare the screenshot of the source view for animation
         let screenshotFromView = UIImageView(image: fromView.screenshot)
         screenshotFromView.frame = fromView.frame
         
-        let offsetFromWindow = toCollectionView.convertPoint(currentCell.frame.origin, toView: toViewController.view).y
-        
         // Prepare the screenshot of the destination view for animation
         let screenshotToView = UIImageView(image: currentCell.screenshot)
         screenshotToView.frame = screenshotFromView.frame
+        
+        // Add screenshots to transition container to set-up the animation
+        container.addSubview(screenshotToView)
+        container.insertSubview(screenshotFromView, belowSubview: screenshotToView)
         
         // Set views initial states
         screenshotToView.alpha = 0.0
         fromView.hidden = true
         currentCell.hidden = true
         
-        // Add screenshots to transition container to set-up the animation
-        container.addSubview(toView)
-        container.addSubview(screenshotToView)
-        container.insertSubview(screenshotFromView, belowSubview: screenshotToView)
+        let containerCoord = toCollectionView.convertPoint(currentCell.frame.origin, toView: container)
         
         UIView.animateWithDuration(_transitionDuration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { () -> Void in
             
             screenshotToView.alpha = 1.0
             screenshotFromView.frame = currentCell.frame
-            screenshotFromView.frame.origin = CGPointMake(screenshotFromView.frame.origin.x, offsetFromWindow)
+            screenshotFromView.frame.origin = containerCoord
             screenshotToView.frame = screenshotFromView.frame
             
             }) { _ in
