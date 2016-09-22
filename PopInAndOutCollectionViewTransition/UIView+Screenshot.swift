@@ -13,12 +13,12 @@ extension UIView {
     var screenshot: UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
         if let tableView = self as? UITableView {
-            tableView.superview!.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            tableView.superview!.layer.render(in: UIGraphicsGetCurrentContext()!)
         } else {
-            layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            layer.render(in: UIGraphicsGetCurrentContext()!)
         }
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        return image
+        return image!
     }
 }
