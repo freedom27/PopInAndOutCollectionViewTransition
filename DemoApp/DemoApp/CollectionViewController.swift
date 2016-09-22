@@ -16,7 +16,7 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let path = NSBundle.mainBundle().pathForResource("Pictures", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "Pictures", ofType: "plist") {
             pictures = NSArray(contentsOfFile: path) as? [String]
         }
         
@@ -31,27 +31,27 @@ class CollectionViewController: UICollectionViewController {
     }
     
     //MARK: UICollectionViewDataSource
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pictures?.count ?? 0
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cellIdentifier = "photoCell"
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! PictureCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PictureCell
         
-        let picName = pictures![indexPath.row] + ".jpg"
+        let picName = pictures![(indexPath as NSIndexPath).row] + ".jpg"
         cell.picture.image = UIImage(named: picName)
         
         return cell
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! ViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ViewController
         let cell = sender as! PictureCell
         // This next line is very importat for the proper functioning of the animation:
         // the sourceCell property tells the animator which is the cell involved in the transition
@@ -62,9 +62,9 @@ class CollectionViewController: UICollectionViewController {
 
 //MARK: UICollectionViewDelegateFlowLayout
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let screenRect = UIScreen.mainScreen().bounds
+        let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         let cellW = (screenWidth - 2)/3
         let cellH = cellW
@@ -75,7 +75,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: UINavigationControllerDelegate
 extension CollectionViewController: UINavigationControllerDelegate {
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         // In this method belonging to the protocol UINavigationControllerDelegate you must
         // return an animator conforming to the protocol UIViewControllerAnimatedTransitioning.
         // To perform the Pop in and Out animation PopInAndOutAnimator should be returned
